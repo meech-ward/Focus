@@ -19,6 +19,7 @@ class WhenInjectingToDependencies: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         
         Focus.failureHandler = nil
+        Focus.successHandler = nil
         
         super.tearDown()
     }
@@ -72,47 +73,53 @@ class WhenInjectingToDependencies: XCTestCase {
         XCTAssertEqual(inputMessage, outputMessage)
     }
     
-//    // MARK: Success Dependency
-//    
-//    func testFocusToUsesSuccessDependency() {
-//        var dependencyUsed = false
-//        Focus.failureHandler = { message, file, line in
-//            dependencyUsed = true
-//        }
-//        
-//        let focusTo = FocusTo(item: "item")
-//        focusTo.fail()
-//        
-//        XCTAssertTrue(dependencyUsed)
-//    }
-//    
-//    func testFocusToPassesSuccessDependencyFileAndLineNumber() {
-//        var data = (file: String, line: UInt)("", 0)
-//        Focus.failureHandler = { message, file, line in
-//            data.file = String(describing: file)
-//            data.line = line
-//        }
-//        
-//        let focusTo = FocusTo(item: "item")
-//        focusTo.fail()
-//        let expectedLine: UInt = #line-1
-//        let expectedFile = #file
-//        
-//        XCTAssertEqual(data.file, expectedFile)
-//        XCTAssertEqual(data.line, expectedLine)
-//    }
-//    
-//    func testFocusToPassesSuccessDependencyMessage() {
-//        let inputMessage = "Test Message"
-//        var outputMessage: String!
-//        Focus.failureHandler = { message, file, line in
-//            outputMessage = message
-//        }
-//        
-//        let focusTo = FocusTo(item: "item")
-//        focusTo.fail(inputMessage)
-//        
-//        XCTAssertEqual(inputMessage, outputMessage)
-//    }
+    // MARK: Success Dependency
+    
+    func testFocusToUsesSuccessDependency() {
+        var failureDependencyUsed = false
+        Focus.failureHandler = { message, file, line in
+            failureDependencyUsed = true
+        }
+        
+        var successDependencyUsed = false
+        Focus.successHandler = { message, file, line in
+            successDependencyUsed = true
+        }
+        
+        let focusTo = FocusTo(item: "item")
+        focusTo.pass()
+        
+        XCTAssertFalse(failureDependencyUsed)
+        XCTAssertTrue(successDependencyUsed)
+    }
+    
+    func testFocusToPassesSuccessDependencyFileAndLineNumber() {
+        var data = (file: String, line: UInt)("", 0)
+        Focus.successHandler = { message, file, line in
+            data.file = String(describing: file)
+            data.line = line
+        }
+        
+        let focusTo = FocusTo(item: "item")
+        focusTo.pass()
+        let expectedLine: UInt = #line-1
+        let expectedFile = #file
+        
+        XCTAssertEqual(data.file, expectedFile)
+        XCTAssertEqual(data.line, expectedLine)
+    }
+    
+    func testFocusToPassesSuccessDependencyMessage() {
+        let inputMessage = "Test Message"
+        var outputMessage: String!
+        Focus.successHandler = { message, file, line in
+            outputMessage = message
+        }
+        
+        let focusTo = FocusTo(item: "item")
+        focusTo.pass(inputMessage)
+        
+        XCTAssertEqual(inputMessage, outputMessage)
+    }
 
 }
