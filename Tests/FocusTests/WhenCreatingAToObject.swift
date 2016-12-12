@@ -9,6 +9,10 @@
 import XCTest
 
 class WhenCreatingAToObject: XCTestCase {
+    
+    override func setUp() {
+        
+    }
 
     func testToObjectSavesInputItem() {
         let someString = "some string"
@@ -17,8 +21,11 @@ class WhenCreatingAToObject: XCTestCase {
         XCTAssertEqual(focusTo.item, someString)
     }
     
-    func testToIsTrue() {
-        
-    }
+//    func testToIsTrue() {
+//        let someBool = true
+//        let focusTo = FocusTo<Bool>(item: someBool)
+//        
+//        focusTo.beTrue()
+//    }
 
 }

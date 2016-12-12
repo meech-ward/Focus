@@ -4,9 +4,9 @@ import XCTest
 class FocusTests: XCTestCase {
 
 
-    static var allTests : [(String, (FocusTests) -> () throws -> Void)] {
-        return [
-            ("testExample", testExample),
-        ]
-    }
+//    static var allTests : [(String, (FocusTests) -> () throws -> Void)] {
+//        return [
+//            ("testExample", testExample),
+//        ]
+//    }
 }

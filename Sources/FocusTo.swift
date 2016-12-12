@@ -15,4 +15,9 @@ struct FocusTo<Item> {
     init(item: Item) {
         self.item = item
     }
+    
+    func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line) {
+        Focus.failureHandler?(message, file, line)
+    }
+    
 }
