@@ -8,19 +8,19 @@
 
 import Foundation
 
-struct FocusTo<Item> {
+public struct FocusTo<Item> {
     
-    var item: Item!
+    internal var item: Item!
     
     init(item: Item) {
         self.item = item
     }
     
-    func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line) {
+    public func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line) {
         Focus.failureHandler?(message, file, line)
     }
     
-    func pass(file: StaticString = #file, line: UInt = #line) {
+    public func pass(file: StaticString = #file, line: UInt = #line) {
         Focus.successHandler?(file, line)
     }
     

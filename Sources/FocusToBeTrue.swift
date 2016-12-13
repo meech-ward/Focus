@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension FocusTo where Item: ExpressibleByBooleanLiteral {
+public extension FocusTo where Item: ExpressibleByBooleanLiteral {
     
-    func beTrue(_ message: String = "Item is not true", file: StaticString = #file, line: UInt = #line) {
+    public func beTrue(_ message: String = "Item is not true", file: StaticString = #file, line: UInt = #line) {
         guard let item = item as? Bool else {
             self.fail(message, file: file, line: line)
             return
