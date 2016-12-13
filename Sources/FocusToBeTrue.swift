@@ -10,18 +10,18 @@ import Foundation
 
 extension FocusTo where Item: ExpressibleByBooleanLiteral {
     
-    func beTrue() {
+    func beTrue(_ message: String = "Item is not true", file: StaticString = #file, line: UInt = #line) {
         guard let item = item as? Bool else {
-            Focus.failureHandler?("", "", 0)
+            Focus.failureHandler?(message, file, line)
             return
         }
         
         guard item == true else {
-            Focus.failureHandler?("", "", 0)
+            Focus.failureHandler?(message, file, line)
             return
         }
         
-        Focus.successHandler?("","",0)
+        Focus.successHandler?(message, file, line)
     }
     
 }

@@ -38,7 +38,7 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         super.tearDown()
     }
 
-    func testToBeTrue() {
+    func test_FocusTo_BeTrue_PassesWhenBoolIsTrue() {
         let focusTo = FocusTo<Bool>(item: true)
 
         focusTo.beTrue()
@@ -47,7 +47,7 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertFalse(failureData.used)
     }
     
-    func testFocusToNotBeTrue() {
+    func test_FocusTo_BeTrue_FailesWhenBoolIsFalse() {
         let focusTo = FocusTo(item: false)
         
         focusTo.beTrue()
@@ -65,23 +65,47 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertTrue(failureData.used)
     }
     
-//    func testFocusToBeTrueUsesCommentFileAndLineNumber() {
-//        var data = (file: String, line: UInt)("", 0)
-//        Focus.failureHandler = { message, file, line in
-//            data.file = String(describing: file)
-//            data.line = line
-//        }
-//        
-//        let focusTo = FocusTo(item: "item")
-//        focusTo.fail()
-//        let expectedLine: UInt = #line-1
-//        let expectedFile = #file
-//        
-//        XCTAssertEqual(data.file, expectedFile)
-//        XCTAssertEqual(data.line, expectedLine)
-//    }
-//    
-//    func testFocusToBeNotTrueUsesCommentFileAndLineNumber() {
-//        
-//    }
+    func test_FocusTo_BeTrue_UsesCommentFileAndLineNumberWhenSuccessful() {
+        let focusTo = FocusTo<Bool>(item: true)
+        let comment = "🖕🏼 Item is not true"
+        
+        focusTo.beTrue(comment)
+        
+        let expectedLine: UInt = #line-2
+        let expectedFile = #file
+        
+        XCTAssertEqual(successData.file, expectedFile)
+        XCTAssertEqual(successData.line, expectedLine)
+        XCTAssertEqual(successData.comment, comment)
+    }
+    
+    func test_FocusTo_BeTrue_UsesCommentFileAndLineNumberWhenFailes() {
+        let focusTo = FocusTo<Bool>(item: false)
+        let comment = "🖕🏼 Item is not true"
+        
+        focusTo.beTrue(comment)
+        
+        let expectedLine: UInt = #line-2
+        let expectedFile = #file
+        
+        XCTAssertEqual(failureData.file, expectedFile)
+        XCTAssertEqual(failureData.line, expectedLine)
+        XCTAssertEqual(failureData.comment, comment)
+    }
+
+    func test_FocusTo_BeTrue_UsesCommentFileAndLineNumberWhenFailesBecauseNonBoolIsPassedIn() {
+        let focusTo = FocusTo(item: customTestBoolen(booleanLiteral: true))
+        let comment = "🖕🏼 Item is not true"
+        
+        focusTo.beTrue(comment)
+        
+        let expectedLine: UInt = #line-2
+        let expectedFile = #file
+        
+        XCTAssertEqual(failureData.file, expectedFile)
+        XCTAssertEqual(failureData.line, expectedLine)
+        XCTAssertEqual(failureData.comment, comment)
+        
+        XCTFail()
+    }
 }
