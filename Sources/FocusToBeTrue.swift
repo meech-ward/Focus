@@ -12,16 +12,16 @@ extension FocusTo where Item: ExpressibleByBooleanLiteral {
     
     func beTrue(_ message: String = "Item is not true", file: StaticString = #file, line: UInt = #line) {
         guard let item = item as? Bool else {
-            Focus.failureHandler?(message, file, line)
+            self.fail(message, file: file, line: line)
             return
         }
         
         guard item == true else {
-            Focus.failureHandler?(message, file, line)
+            self.fail(message, file: file, line: line)
             return
         }
         
-        Focus.successHandler?(message, file, line)
+        self.pass(file: file, line: line)
     }
     
 }

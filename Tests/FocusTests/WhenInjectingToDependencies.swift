@@ -33,7 +33,7 @@ class WhenInjectingToDependencies: XCTestCase {
         }
         
         var successDependencyUsed = false
-        Focus.successHandler = { message, file, line in
+        Focus.successHandler = { file, line in
             successDependencyUsed = true
         }
         
@@ -82,7 +82,7 @@ class WhenInjectingToDependencies: XCTestCase {
         }
         
         var successDependencyUsed = false
-        Focus.successHandler = { message, file, line in
+        Focus.successHandler = { file, line in
             successDependencyUsed = true
         }
         
@@ -95,7 +95,7 @@ class WhenInjectingToDependencies: XCTestCase {
     
     func testFocusToPassesSuccessDependencyFileAndLineNumber() {
         var data = (file: String, line: UInt)("", 0)
-        Focus.successHandler = { message, file, line in
+        Focus.successHandler = { file, line in
             data.file = String(describing: file)
             data.line = line
         }
@@ -108,18 +108,4 @@ class WhenInjectingToDependencies: XCTestCase {
         XCTAssertEqual(data.file, expectedFile)
         XCTAssertEqual(data.line, expectedLine)
     }
-    
-    func testFocusToPassesSuccessDependencyMessage() {
-        let inputMessage = "Test Message"
-        var outputMessage: String!
-        Focus.successHandler = { message, file, line in
-            outputMessage = message
-        }
-        
-        let focusTo = FocusTo(item: "item")
-        focusTo.pass(inputMessage)
-        
-        XCTAssertEqual(inputMessage, outputMessage)
-    }
-
 }

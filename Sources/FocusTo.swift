@@ -20,8 +20,8 @@ struct FocusTo<Item> {
         Focus.failureHandler?(message, file, line)
     }
     
-    func pass(_ message: String = "😡", file: StaticString = #file, line: UInt = #line) {
-        Focus.successHandler?(message, file, line)
+    func pass(file: StaticString = #file, line: UInt = #line) {
+        Focus.successHandler?(file, line)
     }
     
 }

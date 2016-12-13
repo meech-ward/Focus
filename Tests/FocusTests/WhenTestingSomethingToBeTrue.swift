@@ -16,20 +16,20 @@ struct customTestBoolen: ExpressibleByBooleanLiteral {
 class WhenTestingSomethingToBeTrue: XCTestCase {
     
     var failureData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
-    var successData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
+    var successData = (used: Bool, file: String, line: UInt)(false, "", 0)
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         failureData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
-        successData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
+        successData = (used: Bool, file: String, line: UInt)(false, "", 0)
 
         Focus.failureHandler = { message, file, line in
             self.failureData = (used: true, comment: message, file: String(describing: file), line: line)
         }
         
-        Focus.successHandler = { message, file, line in
-            self.successData = (used: true, comment: message, file: String(describing: file), line: line)
+        Focus.successHandler = { file, line in
+            self.successData = (used: true, file: String(describing: file), line: line)
         }
     }
     
@@ -65,7 +65,7 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertTrue(failureData.used)
     }
     
-    func test_FocusTo_BeTrue_UsesCommentFileAndLineNumberWhenSuccessful() {
+    func test_FocusTo_BeTrue_UsesFileAndLineNumberWhenSuccessful() {
         let focusTo = FocusTo<Bool>(item: true)
         let comment = "🖕🏼 Item is not true"
         
@@ -76,7 +76,6 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         
         XCTAssertEqual(successData.file, expectedFile)
         XCTAssertEqual(successData.line, expectedLine)
-        XCTAssertEqual(successData.comment, comment)
     }
     
     func test_FocusTo_BeTrue_UsesCommentFileAndLineNumberWhenFailes() {
@@ -105,7 +104,5 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertEqual(failureData.file, expectedFile)
         XCTAssertEqual(failureData.line, expectedLine)
         XCTAssertEqual(failureData.comment, comment)
-        
-        XCTFail()
     }
 }
