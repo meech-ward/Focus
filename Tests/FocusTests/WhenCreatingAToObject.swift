@@ -16,7 +16,7 @@ class WhenCreatingAToObject: XCTestCase {
 
     func testToObjectSavesInputItem() {
         let someString = "some string"
-        let focusTo = FocusTo(item: someString)
+        let focusTo = To(item: someString)
         
         XCTAssertEqual(focusTo.item, someString)
     }
