@@ -10,14 +10,14 @@ import XCTest
 
 class WhenCreatingAnExpectObject: XCTestCase {
     
-    var failureData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
-    var successData = (used: Bool, file: String, line: UInt)(false, "", 0)
+    var failureData:(used: Bool, comment: String, file: String, line: UInt) = (false, "", "", 0)
+    var successData:(used: Bool, file: String, line: UInt) = (false, "", 0)
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        failureData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
-        successData = (used: Bool, file: String, line: UInt)(false, "", 0)
+        failureData = (false, "", "", 0)
+        successData = (false, "", 0)
         
         Focus.failureHandler = { message, file, line in
             self.failureData = (used: true, comment: message, file: String(describing: file), line: line)
