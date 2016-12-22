@@ -38,8 +38,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         super.tearDown()
     }
 
-    func test_FocusTo_BeTrue_PassesWhenBoolIsTrue() {
-        let focusTo = FocusTo<Bool>(item: true)
+    func test_To_BeTrue_PassesWhenBoolIsTrue() {
+        let focusTo = To<Bool>(item: true)
 
         focusTo.beTrue()
         
@@ -47,8 +47,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertFalse(failureData.used)
     }
     
-    func test_FocusTo_BeTrue_FailesWhenBoolIsFalse() {
-        let focusTo = FocusTo(item: false)
+    func test_To_BeTrue_FailesWhenBoolIsFalse() {
+        let focusTo = To(item: false)
         
         focusTo.beTrue()
         
@@ -56,8 +56,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertTrue(failureData.used)
     }
     
-    func test_FocusTo_BeTrue_FailesWhenNonBoolIsPassedIn() {
-        let focusTo = FocusTo(item: customTestBoolen(booleanLiteral: true))
+    func test_To_BeTrue_FailesWhenNonBoolIsPassedIn() {
+        let focusTo = To(item: customTestBoolen(booleanLiteral: true))
         
         focusTo.beTrue()
         
@@ -65,8 +65,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertTrue(failureData.used)
     }
     
-    func test_FocusTo_BeTrue_UsesFileAndLineNumberWhenSuccessful() {
-        let focusTo = FocusTo<Bool>(item: true)
+    func test_To_BeTrue_UsesFileAndLineNumberWhenSuccessful() {
+        let focusTo = To<Bool>(item: true)
         let comment = "🖕🏼 Item is not true"
         
         focusTo.beTrue(comment)
@@ -78,8 +78,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertEqual(successData.line, expectedLine)
     }
     
-    func test_FocusTo_BeTrue_UsesCommentFileAndLineNumberWhenFailes() {
-        let focusTo = FocusTo<Bool>(item: false)
+    func test_To_BeTrue_UsesCommentFileAndLineNumberWhenFailes() {
+        let focusTo = To<Bool>(item: false)
         let comment = "🖕🏼 Item is not true"
         
         focusTo.beTrue(comment)
@@ -92,8 +92,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertEqual(failureData.comment, comment)
     }
 
-    func test_FocusTo_BeTrue_UsesCommentFileAndLineNumberWhenFailesBecauseNonBoolIsPassedIn() {
-        let focusTo = FocusTo(item: customTestBoolen(booleanLiteral: true))
+    func test_To_BeTrue_UsesCommentFileAndLineNumberWhenFailesBecauseNonBoolIsPassedIn() {
+        let focusTo = To(item: customTestBoolen(booleanLiteral: true))
         let comment = "🖕🏼 Item is not true"
         
         focusTo.beTrue(comment)

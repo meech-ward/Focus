@@ -1,5 +1,5 @@
 //
-//  FocusTo.swift
+//  To.swift
 //  Focus
 //
 //  Created by Sam Meech-Ward on 2016-12-12.
@@ -8,12 +8,15 @@
 
 import Foundation
 
-public struct FocusTo<Item> {
+public struct To<Item>: Toable {
     
-    internal var item: Item!
+    public var item: Item {
+        return _item
+    }
+    private var _item: Item!
     
-    init(item: Item) {
-        self.item = item
+    public init(item: Item) {
+        _item = item
     }
     
     public func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line) {
