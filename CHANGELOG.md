@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+
+### Changed
+
+
+## [0.2.0] - 2017-01-14
+### Added
 - The following sections to README:
 	* Requirements
 	* How To Use
