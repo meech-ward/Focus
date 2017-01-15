@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- The following sections to README:
+	* Requirements
+	* How To Use
+	* Matchers
+	* Features
+	* Contributing
+- An `ISSUE_TEMPLATE.md` file to have a template for for bugs, enhancements or optimizations, and new features.
+- An MIT `LICENSE` document.
+- A Contributing file with the following sections:
+	* What should I know before I get started?
+	* How Can I Contribute?
+	* Styleguides
+	* Code of Conduct
 
 ### Changed
 
@@ -21,5 +34,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - A `FocusExpect` struct that accepts an item`: Any` and passes it to a `FocusTo` instance. This struct only exists for a DSL syntax: `expect(true)to.beTrue()`
 
 ### Changed
-
-
