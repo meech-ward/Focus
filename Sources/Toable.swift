@@ -11,8 +11,15 @@ import Foundation
 public protocol Toable: TestItemContainerType {
     
     associatedtype ItemType
+    
+//    var be: Any { get }
+}
 
+extension Toable where Self: Beable {
+ 
     /// The type that can have any `be` chains chained to it.
-    var be: TestItemContainer<ItemType> { get }
+    var be: Self {
+        return self
+    }
     // I want to use the `Beable` protocol here but swift doesn't support that kind of thing yet.
 }

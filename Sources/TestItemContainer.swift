@@ -29,17 +29,10 @@ public struct TestItemContainer<Item>: TestItemContainerType {
 }
 
 extension TestItemContainer: Expectable {
-    public var to: TestItemContainer<Item> {
-        return self
-    }
 }
 
 extension TestItemContainer: Toable {
-    public var be: TestItemContainer<Item> {
-        return self
-    }
 }
 
 extension TestItemContainer: Beable {
-
 }
