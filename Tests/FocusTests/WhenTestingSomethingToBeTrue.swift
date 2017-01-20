@@ -18,6 +18,10 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
     var failureData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
     var successData = (used: Bool, file: String, line: UInt)(false, "", 0)
     
+    func beable<ItemType>(item: ItemType) -> TestItemContainer<ItemType> {
+        return TestItemContainer(item: item)
+    }
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -38,38 +42,38 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         super.tearDown()
     }
 
-    func test_To_BeTrue_PassesWhenBoolIsTrue() {
-        let focusTo = To<Bool>(item: true)
+    func test_Be_True_PassesWhenBoolIsTrue() {
+        let be = beable<Bool>(item: true)
 
-        focusTo.beTrue()
+        be.true()
         
         XCTAssertTrue(successData.used)
         XCTAssertFalse(failureData.used)
     }
     
-    func test_To_BeTrue_FailesWhenBoolIsFalse() {
-        let focusTo = To(item: false)
+    func test_Be_True_FailesWhenBoolIsFalse() {
+        let be = beable(item: false)
         
-        focusTo.beTrue()
-        
-        XCTAssertFalse(successData.used)
-        XCTAssertTrue(failureData.used)
-    }
-    
-    func test_To_BeTrue_FailesWhenNonBoolIsPassedIn() {
-        let focusTo = To(item: customTestBoolen(booleanLiteral: true))
-        
-        focusTo.beTrue()
+        be.true()
         
         XCTAssertFalse(successData.used)
         XCTAssertTrue(failureData.used)
     }
     
-    func test_To_BeTrue_UsesFileAndLineNumberWhenSuccessful() {
-        let focusTo = To<Bool>(item: true)
+    func test_Be_True_FailesWhenNonBoolIsPassedIn() {
+        let be = beable(item: customTestBoolen(booleanLiteral: true))
+        
+        be.true()
+        
+        XCTAssertFalse(successData.used)
+        XCTAssertTrue(failureData.used)
+    }
+    
+    func test_Be_True_UsesFileAndLineNumberWhenSuccessful() {
+        let be = beable<Bool>(item: true)
         let comment = "🖕🏼 Item is not true"
         
-        focusTo.beTrue(comment)
+        be.true(comment)
         
         let expectedLine: UInt = #line-2
         let expectedFile = #file
@@ -78,11 +82,11 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertEqual(successData.line, expectedLine)
     }
     
-    func test_To_BeTrue_UsesCommentFileAndLineNumberWhenFailes() {
-        let focusTo = To<Bool>(item: false)
+    func test_Be_True_UsesCommentFileAndLineNumberWhenFailes() {
+        let be = beable<Bool>(item: false)
         let comment = "🖕🏼 Item is not true"
         
-        focusTo.beTrue(comment)
+        be.true(comment)
         
         let expectedLine: UInt = #line-2
         let expectedFile = #file
@@ -92,11 +96,11 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertEqual(failureData.comment, comment)
     }
 
-    func test_To_BeTrue_UsesCommentFileAndLineNumberWhenFailesBecauseNonBoolIsPassedIn() {
-        let focusTo = To(item: customTestBoolen(booleanLiteral: true))
+    func test_Be_True_UsesCommentFileAndLineNumberWhenFailesBecauseNonBoolIsPassedIn() {
+        let be = beable(item: customTestBoolen(booleanLiteral: true))
         let comment = "🖕🏼 Item is not true"
         
-        focusTo.beTrue(comment)
+        be.true(comment)
         
         let expectedLine: UInt = #line-2
         let expectedFile = #file

@@ -1,5 +1,5 @@
 //
-//  To.swift
+//  Expect.swift
 //  Focus
 //
 //  Created by Sam Meech-Ward on 2016-12-12.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct To<Item>: Toable {
+public struct TestItemContainer<Item>: TestItemContainerType, Toable {
     
     public var item: Item {
         return _item
@@ -26,5 +26,4 @@ public struct To<Item>: Toable {
     public func pass(file: StaticString = #file, line: UInt = #line) {
         Focus.successHandler?(file, line)
     }
-    
 }

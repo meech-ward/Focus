@@ -37,8 +37,8 @@ class WhenInjectingToDependencies: XCTestCase {
             successDependencyUsed = true
         }
         
-        let focusTo = To(item: "item")
-        focusTo.fail()
+        let test = TestItemContainer(item: "item")
+        test.fail()
         
         XCTAssertTrue(failureDependencyUsed)
         XCTAssertFalse(successDependencyUsed)
@@ -51,8 +51,8 @@ class WhenInjectingToDependencies: XCTestCase {
             data.line = line
         }
         
-        let focusTo = To(item: "item")
-        focusTo.fail()
+        let test = TestItemContainer(item: "item")
+        test.fail()
         let expectedLine: UInt = #line-1
         let expectedFile = #file
         
@@ -67,15 +67,15 @@ class WhenInjectingToDependencies: XCTestCase {
             outputMessage = message
         }
         
-        let focusTo = To(item: "item")
-        focusTo.fail(inputMessage)
+        let test = TestItemContainer(item: "item")
+        test.fail(inputMessage)
 
         XCTAssertEqual(inputMessage, outputMessage)
     }
     
     // MARK: Success Dependency
     
-    func testToUsesSuccessDependency() {
+    func test_To_UsesSuccessDependency() {
         var failureDependencyUsed = false
         Focus.failureHandler = { message, file, line in
             failureDependencyUsed = true
@@ -86,8 +86,8 @@ class WhenInjectingToDependencies: XCTestCase {
             successDependencyUsed = true
         }
         
-        let focusTo = To(item: "item")
-        focusTo.pass()
+        let test = TestItemContainer(item: "item")
+        test.pass()
         
         XCTAssertFalse(failureDependencyUsed)
         XCTAssertTrue(successDependencyUsed)
@@ -100,8 +100,8 @@ class WhenInjectingToDependencies: XCTestCase {
             data.line = line
         }
         
-        let focusTo = To(item: "item")
-        focusTo.pass()
+        let test = TestItemContainer(item: "item")
+        test.pass()
         let expectedLine: UInt = #line-1
         let expectedFile = #file
         

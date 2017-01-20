@@ -33,24 +33,16 @@ class WhenCreatingAnExpectObject: XCTestCase {
         super.tearDown()
     }
 
-    func test_ExpectObject_HasAValidToObject() {
+    func test_ExpectObject_HasAValidItemObject() {
         let focusExpect = expect()
         
-        XCTAssertNotNil(focusExpect.to)
+        XCTAssertNotNil(focusExpect.item)
     }
-    
-    func test_ExpectObject_PassesTheInputObjetToTo() {
-        let item = "Some Item"
-        let focusExpect = expect(item)
-        
-        XCTAssertEqual(item, focusExpect.to.item)
-    }
-
     
     func test_expect_UsesFileAndLineNumberWhenSuccessful() {
         let comment = "🖕🏼 Item is not true"
         
-        expect(true).to.beTrue(comment)
+        expect(true).to.be.true(comment)
         
         let expectedLine: UInt = #line-2
         let expectedFile = #file
@@ -62,7 +54,7 @@ class WhenCreatingAnExpectObject: XCTestCase {
     func test_expect_UsesCommentFileAndLineNumberWhenFailes() {
         let comment = "🖕🏼 Item is not true"
         
-        expect(false).to.beTrue(comment)
+        expect(false).to.be.true(comment)
         
         let expectedLine: UInt = #line-2
         let expectedFile = #file
@@ -75,7 +67,7 @@ class WhenCreatingAnExpectObject: XCTestCase {
     func test_expect_UsesCommentFileAndLineNumberWhenFailesBecauseNonBoolIsPassedIn() {
         let comment = "🖕🏼 Item is not true"
         
-        expect(customTestBoolen(booleanLiteral: true)).to.beTrue(comment)
+        expect(customTestBoolen(booleanLiteral: true)).to.be.true(comment)
         
         let expectedLine: UInt = #line-2
         let expectedFile = #file
