@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct TestItemContainer<Item>: TestItemContainerType, Toable {
+public struct TestItemContainer<Item>: TestItemContainerType {
     
     public var item: Item {
         return _item
@@ -26,4 +26,20 @@ public struct TestItemContainer<Item>: TestItemContainerType, Toable {
     public func pass(file: StaticString = #file, line: UInt = #line) {
         Focus.successHandler?(file, line)
     }
+}
+
+extension TestItemContainer: Expectable {
+    public var to: TestItemContainer<Item> {
+        return self
+    }
+}
+
+extension TestItemContainer: Toable {
+    public var be: TestItemContainer<Item> {
+        return self
+    }
+}
+
+extension TestItemContainer: Beable {
+
 }

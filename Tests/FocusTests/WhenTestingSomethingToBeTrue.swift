@@ -43,7 +43,7 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
     }
 
     func test_Be_True_PassesWhenBoolIsTrue() {
-        let be = beable<Bool>(item: true)
+        let be = beable(item: true)
 
         be.true()
         
@@ -70,7 +70,7 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
     }
     
     func test_Be_True_UsesFileAndLineNumberWhenSuccessful() {
-        let be = beable<Bool>(item: true)
+        let be = beable(item: true)
         let comment = "🖕🏼 Item is not true"
         
         be.true(comment)
@@ -83,7 +83,7 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
     }
     
     func test_Be_True_UsesCommentFileAndLineNumberWhenFailes() {
-        let be = beable<Bool>(item: false)
+        let be = beable(item: false)
         let comment = "🖕🏼 Item is not true"
         
         be.true(comment)
