@@ -4,6 +4,6 @@ public struct Focus {
     public static var successHandler: ((_ file: StaticString, _ line: UInt) -> (Void))?
 }
 
-public func expect<Item>(_ item: Item) -> TestItemContainer<Item> {
-    return TestItemContainer(item: item)
+public func expect<Item>(_ item: Item) -> Expect<Item> {
+    return Expect(item: item)
 }
