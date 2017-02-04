@@ -24,9 +24,13 @@ class WhenInjectingToDependencies: XCTestCase {
         super.tearDown()
     }
     
+    func toable<Item>(item: Item) -> To<Item> {
+        return expect(item).to
+    }
+    
     // MARK: Failure Dependency
 
-    func testToUsesFailureDependency() {
+    func test_To_UsesFailureDependency() {
         var failureDependencyUsed = false
         Focus.failureHandler = { message, file, line in
             failureDependencyUsed = true
@@ -37,21 +41,21 @@ class WhenInjectingToDependencies: XCTestCase {
             successDependencyUsed = true
         }
         
-        let test = TestItemContainer(item: "item")
+        let test = toable(item: "item")
         test.fail()
         
         XCTAssertTrue(failureDependencyUsed)
         XCTAssertFalse(successDependencyUsed)
     }
     
-    func testToPassesFailureDependencyFileAndLineNumber() {
+    func test_To_PassesFailureDependencyFileAndLineNumber() {
         var data = (file: String, line: UInt)("", 0)
         Focus.failureHandler = { message, file, line in
             data.file = String(describing: file)
             data.line = line
         }
         
-        let test = TestItemContainer(item: "item")
+        let test = toable(item: "item")
         test.fail()
         let expectedLine: UInt = #line-1
         let expectedFile = #file
@@ -60,14 +64,14 @@ class WhenInjectingToDependencies: XCTestCase {
         XCTAssertEqual(data.line, expectedLine)
     }
     
-    func testToPassesFailureDependencyMessage() {
+    func test_To_PassesFailureDependencyMessage() {
         let inputMessage = "Test Message"
         var outputMessage: String!
         Focus.failureHandler = { message, file, line in
             outputMessage = message
         }
         
-        let test = TestItemContainer(item: "item")
+        let test = toable(item: "item")
         test.fail(inputMessage)
 
         XCTAssertEqual(inputMessage, outputMessage)
@@ -86,21 +90,21 @@ class WhenInjectingToDependencies: XCTestCase {
             successDependencyUsed = true
         }
         
-        let test = TestItemContainer(item: "item")
+        let test = toable(item: "item")
         test.pass()
         
         XCTAssertFalse(failureDependencyUsed)
         XCTAssertTrue(successDependencyUsed)
     }
     
-    func testToPassesSuccessDependencyFileAndLineNumber() {
+    func test_To_PassesSuccessDependencyFileAndLineNumber() {
         var data = (file: String, line: UInt)("", 0)
         Focus.successHandler = { file, line in
             data.file = String(describing: file)
             data.line = line
         }
         
-        let test = TestItemContainer(item: "item")
+        let test = toable(item: "item")
         test.pass()
         let expectedLine: UInt = #line-1
         let expectedFile = #file
