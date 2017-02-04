@@ -48,7 +48,7 @@ class SimpleTest: XCTestCase {
     func testSomething() {
         var foo = false
         
-        expect(foo)to.beTrue() // This will fail. This is the equivalent of calling XCTAssertTrue(foo)
+        expect(foo)to.be.true() // This will fail. This is the equivalent of calling XCTAssertTrue(foo)
     }
   }
 }
@@ -57,7 +57,7 @@ class SimpleTest: XCTestCase {
 ## Matchers
 
 ```swift
-expect(foo).to.beTrue()
+expect(foo).to.be.true()
 expect(foo).to.fail()
 expect(foo).to.pass()
 ```
@@ -69,7 +69,7 @@ expect(foo).to.pass()
 The chain-capable BDD styles provide an expressive language & readable style. A very readable style:
 
 ```swift
-expect(foo).to.beTrue()
+expect(foo).to.be.true()
 ```
 
 ### No Dependencies
@@ -118,7 +118,7 @@ Focus makes sure you don't compare two types that don't match:
 
 ```swift
 // Does not compile:
-expect(1 + 1).to.beTrue()
+expect(1 + 1).to.be.true()
 ```
 
 ## Contributing
