@@ -15,7 +15,7 @@ public protocol Toable: TestItemContainerType {
 //    var be: Any { get }
 }
 
-extension Toable where Self: Beable {
+public extension Toable where Self: Beable {
  
     /// The type that can have any `be` chains chained to it.
     var be: Self {

@@ -13,7 +13,7 @@ public protocol Expectable: TestItemContainerType {
     associatedtype ItemType
 }
 
-extension Toable where Self: Toable {
+public extension Toable where Self: Toable {
     
     /// The type that can have any `be` chains chained to it.
     var to: Self {

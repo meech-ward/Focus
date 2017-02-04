@@ -18,7 +18,7 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
     var failureData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
     var successData = (used: Bool, file: String, line: UInt)(false, "", 0)
     
-    func beable<ItemType>(item: ItemType) -> TestItemContainer<ItemType> {
+    func beable<ItemType>(item: ItemType) -> TestItemContainer<ItemType> /*Beable<ItemType>*/ {
         return TestItemContainer(item: item)
     }
     

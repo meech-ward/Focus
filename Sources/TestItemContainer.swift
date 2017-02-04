@@ -19,13 +19,9 @@ public struct TestItemContainer<Item>: TestItemContainerType {
         _item = item
     }
     
-    public func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line) {
-        Focus.failureHandler?(message, file, line)
-    }
+    public var failureHandler = Focus.failureHandler
     
-    public func pass(file: StaticString = #file, line: UInt = #line) {
-        Focus.successHandler?(file, line)
-    }
+    public var successHandler: ((StaticString, UInt) -> (Void))? = Focus.successHandler
 }
 
 extension TestItemContainer: Expectable {
