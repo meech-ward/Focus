@@ -21,6 +21,6 @@ public class TestItemContainer<Item>: TestItemContainerType {
     
     public var failureHandler = Focus.failureHandler
     
-    public var successHandler: ((StaticString, UInt) -> (Void))? = Focus.successHandler
+    public var successHandler = Focus.successHandler
     
 }
