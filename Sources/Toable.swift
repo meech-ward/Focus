@@ -17,7 +17,7 @@ public protocol Toable: TestItemContainerType {
 public extension Toable {
  
     /// The type that can have any `be` chains chained to it.
-    var be: Be<ItemType> {
+    public var be: Be<ItemType> {
         return Be(item: item)
     }
     // I want to use the `Beable` protocol here but swift doesn't support that kind of thing yet.
