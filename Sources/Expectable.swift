@@ -2,18 +2,23 @@
 //  Expectable.swift
 //  Focus
 //
-//  Created by Sam Meech-Ward on 2016-12-19.
+//  Created by Sam Meech-Ward on 2017-01-20.
 //
 //
 
 import Foundation
 
-public protocol Expectable {
+public protocol Expectable: TestItemContainerType {
     
     associatedtype ItemType
-    
-    /**
-     Initialize an new instance with the item.
-     */
-    init(item: ItemType)
 }
+
+public extension Expectable {
+    
+    /// to
+    public var to: To<ItemType> {
+        return To(item: item)
+    }
+    // I want to use the `Toable` protocol here but swift doesn't support that kind of thing yet.
+}
+

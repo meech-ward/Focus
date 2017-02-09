@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 
+## [0.3.0] - 2017-02-08
+### Added
+
+### Changed
+- Expecta or Nimble chain style to Chai style chain-capable BDD styles.
+
+
 ## [0.2.0] - 2017-01-14
 ### Added
 - The following sections to README:
