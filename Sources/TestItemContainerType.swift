@@ -19,27 +19,9 @@ public protocol TestItemContainerType {
      Initialize an new instance with the item.
      */
     init(item: ItemType)
-
-    /**
-     Fail without doing any comparisons.
-     This would get called if a comparison was not true.
-     
-     - parameter message: The message to be output when the failure happens.
-     - parameter file: The file that this method was called from.
-     - parameter line: The line number that this method was called from.
-     */
-    var failureHandler: ((_ message: String, _ file: StaticString, _ line: UInt) -> (Void))? { get set }
     
     /**
-     Pass without doing any comparisons.
-     This would get called if a comparison was true.
-     
-     - parameter file: The file that this method was called from.
-     - parameter line: The line number that this method was called from.
-     */
-    var successHandler: ((_ file: StaticString, _ line: UInt) -> (Void))? { get set }
-    
-    /**
+     Responsible for handling pass and fail.
     */
     var reporter: Reportable? { get }
 }
@@ -55,8 +37,7 @@ public extension TestItemContainerType {
      - parameter line: The line number that this method was called from.
      */
     func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line, method: String = #function, evaluation: String = "-") {
-        self.failureHandler?(message, file, line)
-        reporter?.testPassed(file: file, method: method, line: line, message: message, evaluation: evaluation)
+        reporter?.testFailed(file: file, method: method, line: line, message: message, evaluation: evaluation)
     }
     
     /**
@@ -67,8 +48,7 @@ public extension TestItemContainerType {
      - parameter line: The line number that this method was called from.
      */
     func pass(_ message: String = "😊", file: StaticString = #file, line: UInt = #line, method: String = #function, evaluation: String = "-") {
-        self.successHandler?(file, line)
-        reporter?.testFailed(file: file, method: method, line: line, message: message, evaluation: evaluation)
+        reporter?.testPassed(file: file, method: method, line: line, message: message, evaluation: evaluation)
     }
 }
 

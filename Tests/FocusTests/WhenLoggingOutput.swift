@@ -38,13 +38,13 @@ class TestReporter: Reportable {
 
 class WhenLoggingOutput: XCTestCase {
     
-    var reporter: TestReporter?
+    var reporter: TestReporter!
     
     override func setUp() {
         super.setUp()
         
         self.reporter = TestReporter()
-        Focus.reporter = reporter!
+        Focus.reporter = reporter
     }
     
     override func tearDown() {
