@@ -38,6 +38,10 @@ public protocol TestItemContainerType {
      - parameter line: The line number that this method was called from.
      */
     var successHandler: ((_ file: StaticString, _ line: UInt) -> (Void))? { get set }
+    
+    /**
+    */
+    var reporter: Reportable? { get }
 }
 
 public extension TestItemContainerType {
@@ -50,8 +54,9 @@ public extension TestItemContainerType {
      - parameter file: The file that this method was called from.
      - parameter line: The line number that this method was called from.
      */
-    func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line) {
+    func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line, method: String = #function, evaluation: String = "-") {
         self.failureHandler?(message, file, line)
+        reporter?.testPassed(file: file, method: method, line: line, message: message, evaluation: evaluation)
     }
     
     /**
@@ -61,8 +66,9 @@ public extension TestItemContainerType {
      - parameter file: The file that this method was called from.
      - parameter line: The line number that this method was called from.
      */
-    func pass(file: StaticString = #file, line: UInt = #line) {
+    func pass(_ message: String = "😊", file: StaticString = #file, line: UInt = #line, method: String = #function, evaluation: String = "-") {
         self.successHandler?(file, line)
+        reporter?.testFailed(file: file, method: method, line: line, message: message, evaluation: evaluation)
     }
 }
 
