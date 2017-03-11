@@ -44,7 +44,7 @@ class WhenLoggingOutput: XCTestCase {
         super.setUp()
         
         self.reporter = TestReporter()
-        Focus.reporter = reporter
+        Focus.set(reporter: reporter)
     }
     
     override func tearDown() {

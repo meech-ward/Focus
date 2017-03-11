@@ -1,11 +1,15 @@
-public struct Focus {
+struct Focus {
 
     /**
      Responsible for handling pass and fail.
      */
-    public static var reporter: Reportable?
+    static var reporter: Reportable?
 }
 
 public func expect<Item>(_ item: Item) -> Expect<Item> {
     return Expect(item: item)
+}
+
+public func set(reporter: Reportable) {
+    Focus.reporter = reporter
 }
