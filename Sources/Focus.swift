@@ -3,7 +3,7 @@ struct Focus {
     /**
      Responsible for handling pass and fail.
      */
-    static var reporter: Reportable?
+    public static var reporter: Reportable? = DefaultReporter.sharedReporter
 }
 
 public func expect<Item>(_ item: Item) -> Expect<Item> {
