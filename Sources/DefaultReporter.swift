@@ -51,6 +51,8 @@ public class DefaultReporter: Reportable {
     
     public static let sharedReporter = DefaultReporter()
     
+    public var failBlock: ((_ message: String, _ file: StaticString, _ line: UInt) -> Void)?
+    
     public var totalTestsPassed = 0
     public var totalTestsFailed = 0
     
@@ -70,6 +72,10 @@ public class DefaultReporter: Reportable {
         printMessage += "👎  \(message), \(evaluation). File: \(file), Method: \(method), Line:\(line)"
         
         printFail(printMessage)
+        
+        if let failBlock = failBlock {
+            failBlock(message, file, line)
+        }
     }
 }
 

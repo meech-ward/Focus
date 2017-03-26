@@ -1,9 +1,9 @@
 struct Focus {
-
+    
     /**
      Responsible for handling pass and fail.
      */
-    public static var reporter: Reportable? = DefaultReporter.sharedReporter
+    static var reporter: Reportable? = defaultReporter()
 }
 
 public func expect<Item>(_ item: Item) -> Expect<Item> {
@@ -12,4 +12,8 @@ public func expect<Item>(_ item: Item) -> Expect<Item> {
 
 public func set(reporter: Reportable) {
     Focus.reporter = reporter
+}
+
+public func defaultReporter() -> DefaultReporter {
+    return DefaultReporter.sharedReporter
 }
