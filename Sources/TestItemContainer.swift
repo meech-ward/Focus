@@ -19,8 +19,6 @@ public class TestItemContainer<Item>: TestItemContainerType {
         _item = item
     }
     
-    public var failureHandler = Focus.failureHandler
-    
-    public var successHandler = Focus.successHandler
+    public var reporter: Reportable? = Focus.reporter
     
 }

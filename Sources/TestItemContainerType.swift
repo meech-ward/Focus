@@ -19,25 +19,11 @@ public protocol TestItemContainerType {
      Initialize an new instance with the item.
      */
     init(item: ItemType)
-
-    /**
-     Fail without doing any comparisons.
-     This would get called if a comparison was not true.
-     
-     - parameter message: The message to be output when the failure happens.
-     - parameter file: The file that this method was called from.
-     - parameter line: The line number that this method was called from.
-     */
-    var failureHandler: ((_ message: String, _ file: StaticString, _ line: UInt) -> (Void))? { get set }
     
     /**
-     Pass without doing any comparisons.
-     This would get called if a comparison was true.
-     
-     - parameter file: The file that this method was called from.
-     - parameter line: The line number that this method was called from.
-     */
-    var successHandler: ((_ file: StaticString, _ line: UInt) -> (Void))? { get set }
+     Responsible for handling pass and fail.
+    */
+    var reporter: Reportable? { get }
 }
 
 public extension TestItemContainerType {
@@ -50,8 +36,8 @@ public extension TestItemContainerType {
      - parameter file: The file that this method was called from.
      - parameter line: The line number that this method was called from.
      */
-    func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line) {
-        self.failureHandler?(message, file, line)
+    func fail(_ message: String = "😡", file: StaticString = #file, line: UInt = #line, method: String = #function, evaluation: String = "-") {
+        reporter?.testFailed(file: file, method: method, line: line, message: message, evaluation: evaluation)
     }
     
     /**
@@ -61,8 +47,8 @@ public extension TestItemContainerType {
      - parameter file: The file that this method was called from.
      - parameter line: The line number that this method was called from.
      */
-    func pass(file: StaticString = #file, line: UInt = #line) {
-        self.successHandler?(file, line)
+    func pass(_ message: String = "😊", file: StaticString = #file, line: UInt = #line, method: String = #function, evaluation: String = "-") {
+        reporter?.testPassed(file: file, method: method, line: line, message: message, evaluation: evaluation)
     }
 }
 
