@@ -10,18 +10,14 @@ import XCTest
 
 class WhenInjectingToDependencies: XCTestCase {
 
+    var reporter: Reporter!
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        
-        Focus.failureHandler = nil
-        Focus.successHandler = nil
-        
-        super.tearDown()
+        reporter = Reporter()
+        reporter.resetData()
+        Focus.reporter = reporter
     }
     
     func toable<Item>(item: Item) -> To<Item> {
@@ -31,85 +27,59 @@ class WhenInjectingToDependencies: XCTestCase {
     // MARK: Failure Dependency
 
     func test_To_UsesFailureDependency() {
-        var failureDependencyUsed = false
-        Focus.failureHandler = { message, file, line in
-            failureDependencyUsed = true
-        }
-        
-        var successDependencyUsed = false
-        Focus.successHandler = { file, line in
-            successDependencyUsed = true
-        }
-        
         let test = toable(item: "item")
         test.fail()
+        
+        let failureDependencyUsed = reporter.failureData.used
+        let successDependencyUsed = reporter.successData.used
         
         XCTAssertTrue(failureDependencyUsed)
         XCTAssertFalse(successDependencyUsed)
     }
     
     func test_To_PassesFailureDependencyFileAndLineNumber() {
-        var data = (file: String, line: UInt)("", 0)
-        Focus.failureHandler = { message, file, line in
-            data.file = String(describing: file)
-            data.line = line
-        }
-        
         let test = toable(item: "item")
         test.fail()
         let expectedLine: UInt = #line-1
         let expectedFile = #file
+        let expectedMethod = #function
         
-        XCTAssertEqual(data.file, expectedFile)
-        XCTAssertEqual(data.line, expectedLine)
+        XCTAssertEqual(reporter.failureData.file, expectedFile)
+        XCTAssertEqual(reporter.failureData.line, expectedLine)
+        XCTAssertEqual(reporter.failureData.method, expectedMethod)
     }
     
     func test_To_PassesFailureDependencyMessage() {
         let inputMessage = "Test Message"
-        var outputMessage: String!
-        Focus.failureHandler = { message, file, line in
-            outputMessage = message
-        }
         
         let test = toable(item: "item")
         test.fail(inputMessage)
 
-        XCTAssertEqual(inputMessage, outputMessage)
+        XCTAssertEqual(inputMessage, reporter.failureData.comment)
     }
     
     // MARK: Success Dependency
     
     func test_To_UsesSuccessDependency() {
-        var failureDependencyUsed = false
-        Focus.failureHandler = { message, file, line in
-            failureDependencyUsed = true
-        }
-        
-        var successDependencyUsed = false
-        Focus.successHandler = { file, line in
-            successDependencyUsed = true
-        }
-        
         let test = toable(item: "item")
         test.pass()
+        
+        let failureDependencyUsed = reporter.failureData.used
+        let successDependencyUsed = reporter.successData.used
         
         XCTAssertFalse(failureDependencyUsed)
         XCTAssertTrue(successDependencyUsed)
     }
     
     func test_To_PassesSuccessDependencyFileAndLineNumber() {
-        var data = (file: String, line: UInt)("", 0)
-        Focus.successHandler = { file, line in
-            data.file = String(describing: file)
-            data.line = line
-        }
-        
         let test = toable(item: "item")
         test.pass()
         let expectedLine: UInt = #line-1
         let expectedFile = #file
+        let expectedMethod = #function
         
-        XCTAssertEqual(data.file, expectedFile)
-        XCTAssertEqual(data.line, expectedLine)
+        XCTAssertEqual(reporter.successData.file, expectedFile)
+        XCTAssertEqual(reporter.successData.line, expectedLine)
+        XCTAssertEqual(reporter.successData.method, expectedMethod)
     }
 }
