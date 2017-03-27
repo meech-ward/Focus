@@ -12,7 +12,7 @@ Focus and [Observe](https://github.com/ObserveSocial/Observe) are *not* coupled 
 
 ### Installing
 
-Open your `Package.Swift` file and add the following depedency:
+Open your `Package.Swift` file and add the following dependency:
 
 ```swift
 import PackageDescription
@@ -157,3 +157,5 @@ expect(1 + 1).to.be.true()
 ## Contributing
 
 All developers should feel welcome and encouraged to contribute to Focus, see our [CONTRIBUTING](https://github.com/ObserveSocial/Observe/CONTRIBUTING.md) document here to get involved.
+
+
