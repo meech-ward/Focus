@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+
+### Changed
+
+
+## [0.4.0] - 2017-03-27
+### Added
 - A reporter to be able to customize test output and hanldle passing and failing tests.
 
 ### Changed
