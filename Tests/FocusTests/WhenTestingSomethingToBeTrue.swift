@@ -15,26 +15,18 @@ struct customTestBoolen: ExpressibleByBooleanLiteral {
 
 class WhenTestingSomethingToBeTrue: XCTestCase {
     
-    var failureData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
-    var successData = (used: Bool, file: String, line: UInt)(false, "", 0)
-    
     func beable<ItemType>(item: ItemType) -> Be<ItemType> /*Beable<ItemType>*/ {
         return Expect(item: item).to.be
     }
     
+    var reporter: Reporter!
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        failureData = (used: Bool, comment: String, file: String, line: UInt)(false, "", "", 0)
-        successData = (used: Bool, file: String, line: UInt)(false, "", 0)
-
-        Focus.failureHandler = { message, file, line in
-            self.failureData = (used: true, comment: message, file: String(describing: file), line: line)
-        }
-        
-        Focus.successHandler = { file, line in
-            self.successData = (used: true, file: String(describing: file), line: line)
-        }
+        reporter = Reporter()
+        reporter.resetData()
+        Focus.reporter = reporter
     }
     
     override func tearDown() {
@@ -47,8 +39,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
 
         be.true()
         
-        XCTAssertTrue(successData.used)
-        XCTAssertFalse(failureData.used)
+        XCTAssertTrue(reporter.successData.used)
+        XCTAssertFalse(reporter.failureData.used)
     }
     
     func test_Be_True_FailesWhenBoolIsFalse() {
@@ -56,8 +48,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         
         be.true()
         
-        XCTAssertFalse(successData.used)
-        XCTAssertTrue(failureData.used)
+        XCTAssertFalse(reporter.successData.used)
+        XCTAssertTrue(reporter.failureData.used)
     }
     
     func test_Be_True_FailesWhenNonBoolIsPassedIn() {
@@ -65,8 +57,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         
         be.true()
         
-        XCTAssertFalse(successData.used)
-        XCTAssertTrue(failureData.used)
+        XCTAssertFalse(reporter.successData.used)
+        XCTAssertTrue(reporter.failureData.used)
     }
     
     func test_Be_True_UsesFileAndLineNumberWhenSuccessful() {
@@ -78,8 +70,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         let expectedLine: UInt = #line-2
         let expectedFile = #file
         
-        XCTAssertEqual(successData.file, expectedFile)
-        XCTAssertEqual(successData.line, expectedLine)
+        XCTAssertEqual(reporter.successData.file, expectedFile)
+        XCTAssertEqual(reporter.successData.line, expectedLine)
     }
     
     func test_Be_True_UsesCommentFileAndLineNumberWhenFailes() {
@@ -91,9 +83,9 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         let expectedLine: UInt = #line-2
         let expectedFile = #file
         
-        XCTAssertEqual(failureData.file, expectedFile)
-        XCTAssertEqual(failureData.line, expectedLine)
-        XCTAssertEqual(failureData.comment, comment)
+        XCTAssertEqual(reporter.failureData.file, expectedFile)
+        XCTAssertEqual(reporter.failureData.line, expectedLine)
+        XCTAssertEqual(reporter.failureData.comment, comment)
     }
 
     func test_Be_True_UsesCommentFileAndLineNumberWhenFailesBecauseNonBoolIsPassedIn() {
@@ -105,8 +97,8 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         let expectedLine: UInt = #line-2
         let expectedFile = #file
         
-        XCTAssertEqual(failureData.file, expectedFile)
-        XCTAssertEqual(failureData.line, expectedLine)
-        XCTAssertEqual(failureData.comment, comment)
+        XCTAssertEqual(reporter.failureData.file, expectedFile)
+        XCTAssertEqual(reporter.failureData.line, expectedLine)
+        XCTAssertEqual(reporter.failureData.comment, comment)
     }
 }
