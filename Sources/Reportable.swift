@@ -15,3 +15,4 @@ public protocol Reportable {
     func testPassed(file: StaticString, method: String, line: UInt, message: String, evaluation: String)
     
 }
+
