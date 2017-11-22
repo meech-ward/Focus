@@ -10,8 +10,6 @@ import Foundation
 
 public protocol Toable: TestItemContainerType {
     
-    associatedtype ItemType
-    
 }
 
 public extension Toable {
