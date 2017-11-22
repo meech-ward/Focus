@@ -26,7 +26,7 @@ class WhenCreatingAnExpectObject: XCTestCase {
     }
 
     func test_ExpectObject_HasAValidItemObject() {
-        let focusExpect = expect()
+        let focusExpect = expect(())
         
         XCTAssertNotNil(focusExpect.item)
     }
