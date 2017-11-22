@@ -10,7 +10,6 @@ import Foundation
 
 public protocol Expectable: TestItemContainerType {
     
-    associatedtype ItemType
 }
 
 public extension Expectable {
