@@ -1,4 +1,4 @@
-#Focus
+# Focus
 
 Focus is a BDD / TDD assertion library for Swift 3 that can be paired with any Swift testing framework. It works especially well with the [Observe](https://github.com/ObserveSocial/Observe) test framework.
 
