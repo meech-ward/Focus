@@ -7,11 +7,6 @@
 @testable import Focus
 import XCTest
 
-struct customTestBoolen: ExpressibleByBooleanLiteral {
-  init(booleanLiteral value: Bool) {
-  }
-}
-
 class WhenTestingReports: XCTestCase {
   
   func beable<ItemType>(item: ItemType) -> Be<ItemType> /*Beable<ItemType>*/ {
