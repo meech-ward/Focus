@@ -60,45 +60,4 @@ class WhenTestingSomethingToBeTrue: XCTestCase {
         XCTAssertFalse(reporter.successData.used)
         XCTAssertTrue(reporter.failureData.used)
     }
-    
-    func test_Be_True_UsesFileAndLineNumberWhenSuccessful() {
-        let be = beable(item: true)
-        let comment = "🖕🏼 Item is not true"
-        
-        be.true(comment)
-        
-        let expectedLine: UInt = #line-2
-        let expectedFile = #file
-        
-        XCTAssertEqual(reporter.successData.file, expectedFile)
-        XCTAssertEqual(reporter.successData.line, expectedLine)
-    }
-    
-    func test_Be_True_UsesCommentFileAndLineNumberWhenFailes() {
-        let be = beable(item: false)
-        let comment = "🖕🏼 Item is not true"
-        
-        be.true(comment)
-        
-        let expectedLine: UInt = #line-2
-        let expectedFile = #file
-        
-        XCTAssertEqual(reporter.failureData.file, expectedFile)
-        XCTAssertEqual(reporter.failureData.line, expectedLine)
-        XCTAssertEqual(reporter.failureData.comment, comment)
-    }
-
-    func test_Be_True_UsesCommentFileAndLineNumberWhenFailesBecauseNonBoolIsPassedIn() {
-        let be = beable(item: customTestBoolen(booleanLiteral: true))
-        let comment = "🖕🏼 Item is not true"
-        
-        be.true(comment)
-        
-        let expectedLine: UInt = #line-2
-        let expectedFile = #file
-        
-        XCTAssertEqual(reporter.failureData.file, expectedFile)
-        XCTAssertEqual(reporter.failureData.line, expectedLine)
-        XCTAssertEqual(reporter.failureData.comment, comment)
-    }
 }
