@@ -18,14 +18,15 @@ public extension Toable where ItemType: Equatable {
    - parameter file: The file that this method was called from.
    - parameter line: The line number that this method was called from.
    */
-  public func equal(_ item2: ItemType, _ message: String = "Expected true", file: StaticString = #file, line: UInt = #line, method: String = #function) {
+  public func equal(_ item2: ItemType, _ message: String = "Expected equal", file: StaticString = #file, line: UInt = #line, method: String = #function) {
     
     guard item == item2 else {
-      self.fail(message, file: file, line: line, method: method, evaluation: "Item \(self.item) is not true")
+      let newMessage = message == "Expected equal" ? "Item \(self.item) is not equal to \(item2)" : message
+      self.fail(newMessage, file: file, line: line, method: method, evaluation: "Item \(self.item) is not equal to \(item2)")
       return
     }
     
-    self.pass(message, file: file, line: line, method: method, evaluation: "Item \(self.item) is true")
+    self.pass(message, file: file, line: line, method: method, evaluation: "Item \(self.item) & \(item2) are equal")
   }
   
 }
