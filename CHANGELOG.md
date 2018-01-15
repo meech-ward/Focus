@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+
+### Changed
+
+## [0.6.0] - 2018-01-14
+### Added
 - `be.false()`
 - `to.equal()`
 
