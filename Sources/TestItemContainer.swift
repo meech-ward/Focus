@@ -13,7 +13,7 @@ public class TestItemContainer<Item>: TestItemContainerType {
     public var item: Item {
         return _item
     }
-    private var _item: Item!
+    internal var _item: Item!
     
     public required init(item: Item) {
         _item = item
