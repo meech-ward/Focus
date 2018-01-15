@@ -10,9 +10,10 @@ import Foundation
 public extension Toable where ItemType: Equatable {
   
   /**
-   Compare any boolean to the value `true`
-   `item == true`
+   Compare any two `Equatable` things
+   `item1 == item2`
    
+   - parameter item2: The second item to compare to the first item.
    - parameter message: The message to be output if the comparison fails.
    - parameter file: The file that this method was called from.
    - parameter line: The line number that this method was called from.
