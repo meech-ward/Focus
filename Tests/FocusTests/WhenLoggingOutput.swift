@@ -8,7 +8,6 @@
 import Focus
 import XCTest
 
-
 class TestReporter: Reportable {
     
     var file: String?
