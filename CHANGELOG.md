@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+## [0.6.1] - 2018-01-14
+### Added
+
+### Changed
+- Updated error messages for `be.false()` & `to.equal()`
+
 
 ## [0.6.0] - 2018-01-14
 ### Added
