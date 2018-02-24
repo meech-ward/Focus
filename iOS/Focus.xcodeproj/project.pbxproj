@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		228557B02042251600054A2B /* Focus.h in Headers */ = {isa = PBXBuildFile; fileRef = 228557AE2042251600054A2B /* Focus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		228557C42042252C00054A2B /* Be.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557B62042252C00054A2B /* Be.swift */; };
+		228557C52042252C00054A2B /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557B72042252C00054A2B /* Expect.swift */; };
+		228557C62042252C00054A2B /* TestItemContainerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557B82042252C00054A2B /* TestItemContainerType.swift */; };
+		228557C72042252C00054A2B /* BeTrue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557B92042252C00054A2B /* BeTrue.swift */; };
+		228557C82042252C00054A2B /* Expectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557BA2042252C00054A2B /* Expectable.swift */; };
+		228557C92042252C00054A2B /* To.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557BB2042252C00054A2B /* To.swift */; };
+		228557CA2042252C00054A2B /* Reportable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557BC2042252C00054A2B /* Reportable.swift */; };
+		228557CB2042252C00054A2B /* DefaultReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557BD2042252C00054A2B /* DefaultReporter.swift */; };
+		228557CC2042252C00054A2B /* TestItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557BE2042252C00054A2B /* TestItemContainer.swift */; };
+		228557CD2042252C00054A2B /* Beable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557BF2042252C00054A2B /* Beable.swift */; };
+		228557CE2042252C00054A2B /* Focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557C02042252C00054A2B /* Focus.swift */; };
+		228557CF2042252C00054A2B /* Toable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557C12042252C00054A2B /* Toable.swift */; };
+		228557D02042252C00054A2B /* ToEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557C22042252C00054A2B /* ToEqual.swift */; };
+		228557D12042252C00054A2B /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228557C32042252C00054A2B /* BeFalse.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		228557AB2042251600054A2B /* Focus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Focus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		228557AE2042251600054A2B /* Focus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Focus.h; sourceTree = "<group>"; };
+		228557AF2042251600054A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		228557B62042252C00054A2B /* Be.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Be.swift; path = ../../Sources/Be.swift; sourceTree = "<group>"; };
+		228557B72042252C00054A2B /* Expect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Expect.swift; path = ../../Sources/Expect.swift; sourceTree = "<group>"; };
+		228557B82042252C00054A2B /* TestItemContainerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestItemContainerType.swift; path = ../../Sources/TestItemContainerType.swift; sourceTree = "<group>"; };
+		228557B92042252C00054A2B /* BeTrue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeTrue.swift; path = ../../Sources/BeTrue.swift; sourceTree = "<group>"; };
+		228557BA2042252C00054A2B /* Expectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Expectable.swift; path = ../../Sources/Expectable.swift; sourceTree = "<group>"; };
+		228557BB2042252C00054A2B /* To.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = To.swift; path = ../../Sources/To.swift; sourceTree = "<group>"; };
+		228557BC2042252C00054A2B /* Reportable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reportable.swift; path = ../../Sources/Reportable.swift; sourceTree = "<group>"; };
+		228557BD2042252C00054A2B /* DefaultReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultReporter.swift; path = ../../Sources/DefaultReporter.swift; sourceTree = "<group>"; };
+		228557BE2042252C00054A2B /* TestItemContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestItemContainer.swift; path = ../../Sources/TestItemContainer.swift; sourceTree = "<group>"; };
+		228557BF2042252C00054A2B /* Beable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beable.swift; path = ../../Sources/Beable.swift; sourceTree = "<group>"; };
+		228557C02042252C00054A2B /* Focus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Focus.swift; path = ../../Sources/Focus.swift; sourceTree = "<group>"; };
+		228557C12042252C00054A2B /* Toable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Toable.swift; path = ../../Sources/Toable.swift; sourceTree = "<group>"; };
+		228557C22042252C00054A2B /* ToEqual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToEqual.swift; path = ../../Sources/ToEqual.swift; sourceTree = "<group>"; };
+		228557C32042252C00054A2B /* BeFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeFalse.swift; path = ../../Sources/BeFalse.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		228557A72042251600054A2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		228557A12042251600054A2B = {
+			isa = PBXGroup;
+			children = (
+				228557AD2042251600054A2B /* Focus */,
+				228557AC2042251600054A2B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		228557AC2042251600054A2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				228557AB2042251600054A2B /* Focus.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		228557AD2042251600054A2B /* Focus */ = {
+			isa = PBXGroup;
+			children = (
+				228557AE2042251600054A2B /* Focus.h */,
+				228557B62042252C00054A2B /* Be.swift */,
+				228557BF2042252C00054A2B /* Beable.swift */,
+				228557C32042252C00054A2B /* BeFalse.swift */,
+				228557B92042252C00054A2B /* BeTrue.swift */,
+				228557BD2042252C00054A2B /* DefaultReporter.swift */,
+				228557B72042252C00054A2B /* Expect.swift */,
+				228557BA2042252C00054A2B /* Expectable.swift */,
+				228557C02042252C00054A2B /* Focus.swift */,
+				228557BC2042252C00054A2B /* Reportable.swift */,
+				228557BE2042252C00054A2B /* TestItemContainer.swift */,
+				228557B82042252C00054A2B /* TestItemContainerType.swift */,
+				228557BB2042252C00054A2B /* To.swift */,
+				228557C12042252C00054A2B /* Toable.swift */,
+				228557C22042252C00054A2B /* ToEqual.swift */,
+				228557AF2042251600054A2B /* Info.plist */,
+			);
+			path = Focus;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		228557A82042251600054A2B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				228557B02042251600054A2B /* Focus.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		228557AA2042251600054A2B /* Focus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 228557B32042251600054A2B /* Build configuration list for PBXNativeTarget "Focus" */;
+			buildPhases = (
+				228557A62042251600054A2B /* Sources */,
+				228557A72042251600054A2B /* Frameworks */,
+				228557A82042251600054A2B /* Headers */,
+				228557A92042251600054A2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Focus;
+			productName = Focus;
+			productReference = 228557AB2042251600054A2B /* Focus.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		228557A22042251600054A2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "meech-ward";
+				TargetAttributes = {
+					228557AA2042251600054A2B = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 228557A52042251600054A2B /* Build configuration list for PBXProject "Focus" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 228557A12042251600054A2B;
+			productRefGroup = 228557AC2042251600054A2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				228557AA2042251600054A2B /* Focus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		228557A92042251600054A2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		228557A62042251600054A2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				228557CB2042252C00054A2B /* DefaultReporter.swift in Sources */,
+				228557D02042252C00054A2B /* ToEqual.swift in Sources */,
+				228557C52042252C00054A2B /* Expect.swift in Sources */,
+				228557CA2042252C00054A2B /* Reportable.swift in Sources */,
+				228557C62042252C00054A2B /* TestItemContainerType.swift in Sources */,
+				228557CD2042252C00054A2B /* Beable.swift in Sources */,
+				228557CE2042252C00054A2B /* Focus.swift in Sources */,
+				228557CF2042252C00054A2B /* Toable.swift in Sources */,
+				228557C92042252C00054A2B /* To.swift in Sources */,
+				228557C72042252C00054A2B /* BeTrue.swift in Sources */,
+				228557D12042252C00054A2B /* BeFalse.swift in Sources */,
+				228557C42042252C00054A2B /* Be.swift in Sources */,
+				228557C82042252C00054A2B /* Expectable.swift in Sources */,
+				228557CC2042252C00054A2B /* TestItemContainer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		228557B12042251600054A2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		228557B22042251600054A2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		228557B42042251600054A2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Focus/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.meech-ward.Focus";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		228557B52042251600054A2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Focus/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.meech-ward.Focus";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		228557A52042251600054A2B /* Build configuration list for PBXProject "Focus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				228557B12042251600054A2B /* Debug */,
+				228557B22042251600054A2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		228557B32042251600054A2B /* Build configuration list for PBXNativeTarget "Focus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				228557B42042251600054A2B /* Debug */,
+				228557B52042251600054A2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 228557A22042251600054A2B /* Project object */;
+}
