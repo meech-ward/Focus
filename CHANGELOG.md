@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+## [0.6.2] - 2018-02-24
+### Added
+- a swift version file
+
+### Changed
+- add swift-tools-version:4.0 to Package.json
+
 ## [0.6.1] - 2018-01-14
 ### Added
 
